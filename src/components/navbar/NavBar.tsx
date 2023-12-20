@@ -12,7 +12,7 @@ const Navbar = () => (
           alt="logo"
           width={100}
           height={18}
-          className="object-contain"
+          className="item-image"
         />
       </Link>
       <CustomButton

@@ -4,8 +4,8 @@ import Link from "next/link";
 import Logo from "../../public/car-logo.svg";
 import "./Footer.css";
 const Footer = () => (
-  <footer className="footer">
-    <div className="footer-container">
+  <footer className="footer ">
+    <div className="footer-container ">
       <div className="container-tag">
         <Image
           src={Logo}
@@ -42,8 +42,7 @@ const Footer = () => (
 
     <div className="flex flex-col justify-between items-center flex-wrap mt-10 border-t border-gray-100 sm:px-16 px-6 py-10">
       <p>@2023 CarHub. All rights reserved</p>
-
-      <div className="footer__copyrights-link">
+      <div className="footer__copyrights-link ">
         <Link href="/" className="text-gray-500">
           Privacy & Policy
         </Link>
