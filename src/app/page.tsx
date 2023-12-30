@@ -10,22 +10,13 @@ import ShowMore from "@/components/showMore/ShowMore";
 import { useEffect } from "react";
 import { useSelector } from "react-redux";
 import { ShowToast } from "@/components/showMore/ShowToast";
-export default function Home() {
-  // const allCars = await fetchCars({
-  //   manufacturer: searchParams.manufacturer || "",
-  //   year: searchParams.year || 2022,
-  //   fuel: searchParams.fuel || "",
-  //   limit: searchParams.limit || 10,
-  //   model: searchParams.model || "",
-  // });
-
-  const isDataEmpty: Array<String> = ["smsm"];
+import { fetchCar } from "@/util";
+export default async function Home() {
+  const allCars = await fetchCar();
 
   return (
     <main className="overflow-hidden">
-      <ShowToast>
-        <ShowMore />
-      </ShowToast>
+      <ShowToast />
       <Hero />
       <div className="discover">
         <div className="dicover-head">
@@ -35,16 +26,16 @@ export default function Home() {
           </p>
         </div>
         <div className="flex flex-col       xs:flex-col">
-          <div className="flex flex-row w-full py-5 items-center">
+          <div className="search py-5  ">
             <SearchBar />
             <div className="flex flex-row gap-14">
               <CustomFilter title="fuel" options={fuels} />
               <CustomFilter title="year" options={yearsOfProduction} />
             </div>
           </div>
-          {isDataEmpty !== [] ? (
+          {allCars ? (
             <section className="w-full my-5">
-              <CarGroups />
+              <CarGroups allcar={allCars} />
             </section>
           ) : (
             <div className="home__error-container">

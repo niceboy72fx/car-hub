@@ -1,8 +1,10 @@
 "use client";
 
 import { useSelector } from "react-redux";
+import ShowMore from "./ShowMore";
 
-export function ShowToast({ children }: { children: React.ReactNode }) {
+export function ShowToast() {
   const open = useSelector((state) => state?.setToastWindows?.open);
-  return <div>{open ? children : null}</div>;
+  const data = useSelector((state) => state?.setToastWindows?.value);
+  return <div>{open ? <ShowMore item={data} /> : <></>}</div>;
 }
