@@ -2,7 +2,7 @@
 import CarCard from "../carCards/CarCards";
 import "./CarGroups.css";
 
-const CarGroups: React.FC<{ allcar: Array }> = ({ allcar }) => {
+const CarGroups: React.FC<{ allcar: any }> = ({ allcar }) => {
   console.log(allcar);
   return (
     <div className="group-cards">

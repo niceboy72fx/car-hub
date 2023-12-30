@@ -5,8 +5,14 @@ import car from "../../assets/car.png";
 import close from "../../assets/close.svg";
 import { useDispatch } from "react-redux";
 import { setToast } from "@/redux/setToastWindows";
+import { ReactNode } from "react";
 
-const ShowMore: React.FC<{ item: object }> = ({ item }) => {
+interface CarDetails {
+  [key: string]: string;
+  item: any;
+}
+
+const ShowMore: React.FC<CarDetails> = ({ item }) => {
   const dispatch = useDispatch();
 
   const closeButton = () => {
@@ -29,16 +35,16 @@ const ShowMore: React.FC<{ item: object }> = ({ item }) => {
         <div className="win-content">
           <h1 className="content-header">Toyota </h1>
           <div className="max-w-lg">
-            <h2 className="font-semibold text-xl capitalize">
-              {item.make} {item.model}
-            </h2>
+            <h2 className="font-semibold text-xl capitalize">{item?.model}</h2>
             <div className="mt-3 flex flex-wrap gap-4">
               {Object.entries(item).map(([key, value]) => (
                 <div className="flex justify-between  w-full " key={key}>
                   <h4 className="text-grey capitalize">
                     {key.split("_").join(" ")}
                   </h4>
-                  <p className="text-black-100 font-semibold">{value}</p>
+                  <p className="text-black-100 font-semibold">
+                    {value as ReactNode}
+                  </p>
                 </div>
               ))}
             </div>
