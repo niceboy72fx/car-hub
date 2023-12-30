@@ -36,10 +36,7 @@ const SearchManufacturer = ({
             leaveFrom="opacity-100"
             leaveTo="opacity-0"
           >
-            <Combobox.Options
-              className="toast_search"
-              static
-            ></Combobox.Options>
+            <Combobox.Options className="toast_search"></Combobox.Options>
           </Transition>
         </div>
       </Combobox>

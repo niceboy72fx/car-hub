@@ -5,7 +5,7 @@
 }
 
 .header-nav {
-  max-width: 1440px;
+  /* max-width: 1440px; */
   display: flex;
   background-color: transparent;
   flex-direction: row;
